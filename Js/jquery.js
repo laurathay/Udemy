@@ -24,7 +24,11 @@ $(document).ready(function(){
     }); 
 
 
-    //make the dropdown menu 
+    //make the dropdown menu open on click
+    $('[data-trigger="dropdown"]').on('mouseenter', function(){
+        var submenu = $(this).parent().find('.submenu');
+        submenu.addClass=('active');
+    });
 
 
 
