@@ -111,6 +111,14 @@ section {
     background: pink;
 }
 
+.context-menu a .hidden {
+    display: none;
+}
+
+.context-menu a .hidden .shown {
+    display: block;
+}
+
 /* ------------- INSPIRATION CODEPEN ------------------*/
 /* html {
 	font-size: 1px;

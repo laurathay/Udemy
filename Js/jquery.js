@@ -45,6 +45,16 @@ $(document).ready(function(){
         if(event.which == 3){ //donner la position de la souris quand on clic a droite
             console.log(event.pageX, event.pageY);
 
+            //before showing the menu we determine if something
+            //should be hidden or not, on a rajouté la class shown 
+            $('.hidden').removeClass('shown');
+
+            if($(event.target).is('img')){
+                $('.saveimg', '.newtab').addClass('shown');
+            } else if ($(event.target).is('a')) {
+                $('.newtab').addClass('shown');
+            } //------- partie a revoir comprends pas pourquoi le clic droit ne change pas comme je lui dit sur limage & le lien ---------
+
             $('#context').css ({
                 top: event.pageY,
                 left: event.pageX
