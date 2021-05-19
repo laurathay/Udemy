@@ -23,25 +23,53 @@ $(document).ready(function(){
 
 
     //make the dropdown menu open on click
-    $('[data-trigger="dropdown"]').on('mouseenter', function(){ //dont forget to put it display none data trigger
-        var submenu = $(this).parent().find('.submenu');
-        submenu.addClass=('active');
+    //            CETTE TECHNIQUE NE MARCHE PAS
+    // $('[data-trigger="dropdown"]').on('mouseenter', function(){ //dont forget to put it display none data trigger
+    //     var submenu = $(this).parent().find('.submenu');
+    //     submenu.addClass=('active');
 
-        $(this).on('mouseleaves', function(){
-            submenu.removeClass('active');
-        });
+    //     $('.profile-menu').on('mouseleave', function(){
+    //         submenu.removeClass('active');
+    //     });
+    // });
+
+    //autre facon 
+    $(function() {
+        var profileSubMenu = $('.profile-submenu');
+        var loggingIn = $('.profile-menu-trigger');
+            loggingIn.on('mouseenter', function(){
+            // profileSubMenu.toggleClass('active'); TECHNIQUE QUI MARCHE PAS LA PEINE DECRIRE LE RESTE
+            profileSubMenu.fadeIn(300);
+
+            loggingIn.on('mouseleave', function(){
+                profileSubMenu.fadeOut(300);   
+            })
+        }); 
     });
 
-    //autre essaie
-    $(function() {
-        var box = $('.box');
-        var button = $('.open-menu, .header-menu');
-        button.on('click', function(){
-          box.toggleClass('active');
-        });
-      });
+    //Inspiration codepen
+    // $(function() {
+    //     var box = $('.box');
+    //     var button = $('.open-menu, .header-menu');
+    //     button.on('click', function(){
+    //       box.toggleClass('active');
+    //     });
+    //   });
 
+    //Objectif : ce qu'on écrit dans le textarea peut etre ré utiliser/ modifier
+    $('#prepend, #append, #replace').on('click', function(e){ //e = event, on target les 3 id button
+        var el = $(e.currentTarget); //on déclare que el est le moment où on clic sur l'élément
+        var action = el.attr('id'); // on lui attribut son id qu'on déclare action 
+        var content = $('.text').val();
 
-
+        if(action == "append"){ //maintenant pour chaque bouton cliquer on peut faire une action
+            console.log("Append...");
+            $('#main').prepend('content');
+        } else if (action == "prepend"){
+            console.log("Prepend...");
+        } else if (action == "replace"){
+            console.log("Replace...");
+        }
+    })
 
 });

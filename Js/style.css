@@ -29,6 +29,11 @@ article {
     margin-right: 20px;
 }
 
+/* .profile-menu a  */
+[data-trigger=dropdown-menu]{
+    padding-bottom: 35px;
+}
+
 .submenu {
     list-style: none;
     padding: 0px;
@@ -42,7 +47,7 @@ article {
     display: none;
 }
 
-.submenu .active {
+.active {
     display: block;
 }
 
@@ -72,8 +77,15 @@ article {
 
 }
 
-/* essaie */
-html {
+section {
+    max-width: 100%;
+    width: 900%;
+    margin: auto;
+}
+
+
+/* ------------- INSPIRATION CODEPEN ------------------*/
+/* html {
 	font-size: 1px;
 }
 
@@ -206,4 +218,4 @@ button:focus {
 
 .twitter:hover {
 
-}
+} */
