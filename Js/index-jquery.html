@@ -10,6 +10,17 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
+    <div id="context">
+        <ul class="context-menu">
+            <li><a href="#">Back</a></li>
+            <li><a href="#">Forward</a></li>
+            <li><a href="#">Reload</a></li>
+            <li><a href="#">Save as</a></li>
+            <li><a href="#">Inspect Element</a></li>
+        </ul>
+
+    </div>
     
     <header id="main-header">
         <h1 id="site-title"> Best news ever ! </h1>
@@ -34,7 +45,9 @@
         </ul>
     </section>
 
+    
     <section>
+        <form action="submit.php">
     
         <textarea class="text" placeholder="type something"></textarea> <br/>
         
@@ -42,6 +55,7 @@
         <button id="prepend"> Prepend </button>
         <button id="replace"> Replace </button>
 
+        </form>
     </section>
 
 
@@ -50,6 +64,8 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda perspiciatis iste vero aut id consequuntur modi tempora culpa eos maxime atque non temporibus mollitia, eligendi dolorum nostrum possimus aliquam.
         </p>
     </section>
+
+    <a href="https://google.com">GOogle</a>
 
     <!-- <div class="box">
         <div class="container">

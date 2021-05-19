@@ -20,6 +20,23 @@ $(document).ready(function(){
     // $('go-button').on ('hover', function() {
     //     alert("Good job pressing the button!");
     // }); 
+    
+    //SWITCH CASE 
+    $(document).on('mousedown', function(event){
+        event.stopPropagation(); //pcq du coup le clic droit apparait sur les deux coté du coup on utilise ca plutot que preventDefault
+
+        switch(event. which){ //like an if but proper
+            case 1: //lorsque levenement de la souris = 1 on écrit
+                console.log("Clicked left mouse button");
+                break;
+            case 2:
+                console.log("Clicked middle mouse button");
+                break;
+            case 3:
+                console.log("Clicked right mouse button");
+                break;
+        }
+    })
 
 
     //make the dropdown menu open on click
@@ -58,18 +75,33 @@ $(document).ready(function(){
 
     //Objectif : ce qu'on écrit dans le textarea peut etre ré utiliser/ modifier
     $('#prepend, #append, #replace').on('click', function(e){ //e = event, on target les 3 id button
+        e.preventDefault(); //comme on a mis une action sur le form, comme ca elle fait les actions qu'on lui dit sur les boutons et non celui déjà inscrit sur le HTML
+        
         var el = $(e.currentTarget); //on déclare que el est le moment où on clic sur l'élément
         var action = el.attr('id'); // on lui attribut son id qu'on déclare action 
         var content = $('.text').val();
-
+        //THIS IS CONDITIONAL 
         if(action == "append"){ //maintenant pour chaque bouton cliquer on peut faire une action
             console.log("Append...");
-            $('#main').prepend('content');
+            $('#main').append("<a href='#'>" + content + "</a>");
         } else if (action == "prepend"){
             console.log("Prepend...");
+            $('#main').prepend(content);
+
         } else if (action == "replace"){
             console.log("Replace...");
+            $('#main').html(content); //html c'est comme innerHTML
+
         }
+
+        $('#text').val(''); //celle ci suffit pour juste remplacer la valeur de ce qu'on écrit dans le textarea dans la div text
+    })
+
+    //PreventDefault 
+    $('[href="https://google.com').on('click', function(event){
+        console.log('linking to google?');
+        //on peut aussi marquer a la place return false; ca marcherait aussi
+        event.preventDefault(); //pour empecher que lorsqu'on clic sur le lien ca accède au lien 
     })
 
 });
