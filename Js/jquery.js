@@ -23,10 +23,23 @@ $(document).ready(function(){
 
 
     //make the dropdown menu open on click
-    $('.profile-menu').on('mouseenter', function(){ //dont forget to put it display none data trigger
-        var submenu = $(this).parent().find('.submenu a');
+    $('[data-trigger="dropdown"]').on('mouseenter', function(){ //dont forget to put it display none data trigger
+        var submenu = $(this).parent().find('.submenu');
         submenu.addClass=('active');
+
+        $(this).on('mouseleaves', function(){
+            submenu.removeClass('active');
+        });
     });
+
+    //autre essaie
+    $(function() {
+        var box = $('.box');
+        var button = $('.open-menu, .header-menu');
+        button.on('click', function(){
+          box.toggleClass('active');
+        });
+      });
 
 
 
