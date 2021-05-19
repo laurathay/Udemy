@@ -20,23 +20,48 @@ $(document).ready(function(){
     // $('go-button').on ('hover', function() {
     //     alert("Good job pressing the button!");
     // }); 
+
+    $(document).on('contextmenu', function(){
+        return false;
+    });
     
     //SWITCH CASE 
     $(document).on('mousedown', function(event){
         event.stopPropagation(); //pcq du coup le clic droit apparait sur les deux coté du coup on utilise ca plutot que preventDefault
 
-        switch(event. which){ //like an if but proper
-            case 1: //lorsque levenement de la souris = 1 on écrit
-                console.log("Clicked left mouse button");
-                break;
-            case 2:
-                console.log("Clicked middle mouse button");
-                break;
-            case 3:
-                console.log("Clicked right mouse button");
-                break;
+        // switch(event. which){ //like an if but proper
+        //     case 1: //lorsque levenement de la souris = 1 on écrit
+        //         console.log("Clicked left mouse button");
+        //         break;
+        //     case 2:
+        //         console.log("Clicked middle mouse button");
+        //         break;
+        //     case 3:
+        //         console.log("Clicked right mouse button");
+        //         break;
+        // }
+
+        //la on est passé a un if pcq c'est juste le bouton droit qu'on veut
+        if(event.which == 3){ //donner la position de la souris quand on clic a droite
+            console.log(event.pageX, event.pageY);
+
+            $('#context').css ({
+                top: event.pageY,
+                left: event.pageX
+            });
+
+            $('#context').fadeIn(); //si on laisse juste show a la place de fadeIn ca va juste le laisser la 
+            return false;
         }
+
+        $('#context').fadeOut(); // avec fadeIn fadeOut, il apparait et disparait là où on clique a droite
+
     })
+
+    //Custom context menu, pageY and pageX
+    $(document).on('contextmenu'), function(){
+        return false;
+    } 
 
 
     //make the dropdown menu open on click
