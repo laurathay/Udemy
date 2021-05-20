@@ -119,6 +119,14 @@ section {
     display: block;
 }
 
+img {
+    width: 500px;
+}
+
+.status {
+    display: none;
+}
+
 /* ------------- INSPIRATION CODEPEN ------------------*/
 /* html {
 	font-size: 1px;

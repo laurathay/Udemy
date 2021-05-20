@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
     //difference between jquery and vanilla
-    // var el = document.getElementById('text');
-    // console.log('In Vanilla Js :', el);
-    // console.log('In JQuery : ', + $(el));
+    var el = document.getElementById('text');
+    console.log('In Vanilla Js :', el);
+    console.log('In JQuery : ', + $(el));
     
     // //innerHTML
     // document.getElementById('text').innerHTML="This is my text";
@@ -73,7 +73,6 @@ $(document).ready(function(){
         return false;
     } 
 
-    var s = new gquery('my-selector');
 
 
     //make the dropdown menu open on click
@@ -133,6 +132,30 @@ $(document).ready(function(){
 
         $('#text').val(''); //celle ci suffit pour juste remplacer la valeur de ce qu'on écrit dans le textarea dans la div text
     })
+
+    //focusin focusout usually on form to know if there is enough letters etc
+    $('textarea').focusin (function(){
+        console.log("focused in the textarea");
+    });
+
+    $('textarea').focusout (function(){
+        console.log("textarea has lost focus")
+    });
+
+    $('input').focusout (function(){
+        if($(this).val().indexOf('0') > -1 && $(this).val().indexOf('.') > -1 ){
+            $('.status').html("Valid email");
+        } else {
+            $('status').html("Your email in invalide"); 
+        };
+    })
+
+    //Contain
+    $('p:contains("Lorem")').html("This is suprisinly yes"); //si le paragraph contient Lorem on écrit this is surprisingly yes
+
+    if($(':contains("Lorem")').hasClass('my-selfhjuk')){ //pour voir si Lorem est contenu et a la class my-selfhjuk
+        console.log("Lorem is inside the paragrah"); //on écrit ca si c'est le cas sinon rien n'apparait car if boolean
+    };
 
     //PreventDefault 
     $('[href="https://google.com').on('click', function(event){

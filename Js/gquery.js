@@ -25,7 +25,7 @@ class gquery {
     }
 }
 
-function gquery(el){
-    var element = new gquery(el);
+function gQuery(el){
+    var element = new gQuery(el);
     return element;
 }
