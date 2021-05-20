@@ -73,6 +73,8 @@ $(document).ready(function(){
         return false;
     } 
 
+    var s = new gquery('my-selector');
+
 
     //make the dropdown menu open on click
     //            CETTE TECHNIQUE NE MARCHE PAS
