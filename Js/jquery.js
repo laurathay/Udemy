@@ -1,9 +1,21 @@
 $(document).ready(function(){
 
+    //callbacks
+    function printThis(el){
+        console.log($(this).text()); //this aurait pu etre el ca aurait ete pareil
+        if($(this).text()){
+            console.log($(this).text);
+        } else {
+            console.log($(this).val());
+        }
+    }
+
+    $('input').focusin(printThis);
+
     //difference between jquery and vanilla
-    var el = document.getElementById('text');
-    console.log('In Vanilla Js :', el);
-    console.log('In JQuery : ', + $(el));
+    // var el = document.getElementById('text');
+    // console.log('In Vanilla Js :', el);
+    // console.log('In JQuery : ', + $(el));
     
     // //innerHTML
     // document.getElementById('text').innerHTML="This is my text";
@@ -153,6 +165,9 @@ $(document).ready(function(){
     //Contain
     $('p:contains("Lorem")').html("This is suprisinly yes"); //si le paragraph contient Lorem on écrit this is surprisingly yes
 
+    //each
+    $(this).each(printThis); //c'est pour le callback tout en haut 
+
     if($(':contains("Lorem")').hasClass('my-selfhjuk')){ //pour voir si Lorem est contenu et a la class my-selfhjuk
         console.log("Lorem is inside the paragrah"); //on écrit ca si c'est le cas sinon rien n'apparait car if boolean
     };
@@ -163,5 +178,13 @@ $(document).ready(function(){
         //on peut aussi marquer a la place return false; ca marcherait aussi
         event.preventDefault(); //pour empecher que lorsqu'on clic sur le lien ca accède au lien 
     })
+
+    //css
+    $('input').css({
+        backgroud: '#FCC',
+        padding: '10px',
+        borderColor: 'black',
+        backgroudSize: 'cover'
+    });
 
 });
